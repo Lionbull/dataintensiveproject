@@ -1,12 +1,12 @@
 # React + Vite
 
-## How to install
+### How to install
 `yarn install`
 
-## How to add package
+### How to add package
 `yarn add [package name]`
 
-## How to start
+### How to start
 `yarn dev`
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
