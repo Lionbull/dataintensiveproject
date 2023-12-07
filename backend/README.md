@@ -6,4 +6,5 @@
 ### How to add package
 `yarn add [package name]`
 
-### How to start
+### How to start dev server
+`yarn dev`
