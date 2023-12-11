@@ -1,68 +1,47 @@
-import {Box, Card, Typography} from "@mui/material";
+import {Box, Card, FormControl, InputLabel, MenuItem, Select, Typography} from "@mui/material";
+import {useState} from "react";
 import fiFlag from "../assets/fi.svg";
 import controllerImg from "../assets/controller.webp"
+import mockData from "../mock-data/games.json";
+import filter from "../utils/filter.js";
 
-const mockData = [
-    {
-        title: "Game 1",
-        releaseYear: "2001",
-        developer: "Developer 1",
-        publisher: "Publisher 1"
-    },
-    {
-        title: "Game 2",
-        releaseYear: "2002",
-        developer: "Developer 2",
-        publisher: "Publisher 2"
-    },
-    {
-        title: "Game 3",
-        releaseYear: "2003",
-        developer: "Developer 3",
-        publisher: "Publisher 3"
-    },
-    {
-        title: "Game 4",
-        releaseYear: "2004",
-        developer: "Developer 4",
-        publisher: "Publisher 4"
-    },
-    {
-        title: "Game 5",
-        releaseYear: "2005",
-        developer: "Developer 5",
-        publisher: "Publisher 5"
-    },
-    {
-        title: "Game 6",
-        releaseYear: "2006",
-        developer: "Developer 6",
-        publisher: "Publisher 6"
-    },
-    {
-        title: "Game 7",
-        releaseYear: "2007",
-        developer: "Developer 7",
-        publisher: "Publisher 7"
-    },
-    {
-        title: "Game 8",
-        releaseYear: "2008",
-        developer: "Developer 8",
-        publisher: "Publisher 8"
-    },
-    {
-        title: "Game 9",
-        releaseYear: "2009",
-        developer: "Developer 9",
-        publisher: "Publisher 9"
-    },
-]
+const emptyFilters = {
+    title: "",
+    releaseYear: "",
+    price: ""
+};
 
-const GameInfoCard = ({title, releaseYear, developer, publisher}) => {
+const DropdownFilter = ({property, name, filters, setFilters}) => {
+    const handleChange = (event) => {
+        setFilters({...emptyFilters, [property]: event.target.value});
+    };
+
+    return (
+        <FormControl sx={{width: "150px"}}>
+            <InputLabel>{name}</InputLabel>
+            <Select label={name} value={filters[property]} onChange={handleChange}>
+                <MenuItem value="">Not selected</MenuItem>
+                <MenuItem value="Ascending">Ascending</MenuItem>
+                <MenuItem value="Descending">Descending</MenuItem>
+            </Select>
+        </FormControl>
+    );
+};
+
+const Filters = ({filters, setFilters}) => {
+    return (
+        <Box sx={{display: "flex", justifyContent: "center", gap: "16px"}}>
+            <DropdownFilter property="title" name="Title" filters={filters} setFilters={setFilters}/>
+            <DropdownFilter property="releaseYear" name="Release Year" filters={filters} setFilters={setFilters}/>
+            <DropdownFilter property="price" name="Price" filters={filters} setFilters={setFilters}/>
+        </Box>
+    );
+};
+
+const GameInfoCard = ({title, releaseYear, developer, publisher, price}) => {
     return(
-        <Card>
-            <img src={controllerImg}/>
+        <Card sx={{width: "256px"}}>
+            <Box component="img" src={controllerImg} sx={{width: '100%'}}/>
             <Box sx={{display: "flex", padding: "8px"}}>
                 <Box sx={{width: "60%"}}>
                     <Typography>{title}</Typography>
@@ -71,26 +50,31 @@ const GameInfoCard = ({title, releaseYear, developer, publisher}) => {
                     <Typography>{publisher}</Typography>
                 </Box>
                 <Box sx={{width: "40%", display: "flex", flexDirection: "column-reverse", alignItems: "flex-end"}}>
-                    <Typography>Price</Typography>
+                    <Typography>{price}</Typography>
                 </Box>
             </Box>
         </Card>
-    )
-}
+    );
+};
 
 const GamesListPage = ({country}) => {
+    const [filters, setFilters] = useState(emptyFilters);
+
+    const filteredData = filter(mockData, filters);
+
     return (
         <Box sx={{display: "flex", flexDirection: "column", justifyContent: "center", gap: "32px"}}>
             <Box sx={{display: "flex", justifyContent: "center", alignItems: "center", gap: "16px", padding: "16px"}}>
                 <img className="flag" src={fiFlag}/>
                 <Typography>Support the domestic video game industry. Buy these games! 🕹️</Typography>
             </Box>
-            <Box sx={{display: "flex", justifyContent: "center", flexWrap: "wrap", width: "768px", gap: "16px"}}>
-                {mockData.map((game, i) => <GameInfoCard {...game} key={i}/>)}
+            <Filters filters={filters} setFilters={setFilters}/>
+            <Box sx={{display: "flex", justifyContent: "center", flexWrap: "wrap", width: "992px", gap: "16px"}}>
+                {filteredData.map((game, i) => <GameInfoCard {...game} key={i}/>)}
             </Box>
         </Box>
 
-    )
-}
+    );
+};
 
 export default GamesListPage;

@@ -1,0 +1,65 @@
+[
+  {
+    "title": "The Lost City",
+    "releaseYear": "2024",
+    "developer": "Mystic Games",
+    "publisher": "Enigma Studios",
+    "price": "59.99€"
+  },
+  {
+    "title": "Last Frontier 2",
+    "releaseYear": "1992",
+    "developer": "Aurora Interactive",
+    "publisher": "Galactic Games",
+    "price": "10.49€"
+  },
+  {
+    "title": "Timekeeper",
+    "releaseYear": "2019",
+    "developer": "Chrono Games",
+    "publisher": "Time Publishing",
+    "price": "39.99€"
+  },
+  {
+    "title": "Dark Forest",
+    "releaseYear": "2006",
+    "developer": "Shadow Games",
+    "publisher": "Eclipse Studios",
+    "price": "15.99€"
+  },
+  {
+    "title": "Crystal Caverns 1",
+    "releaseYear": "2015",
+    "developer": "Crystal Games",
+    "publisher": "Gemstone Studios",
+    "price": "29.99€"
+  },
+  {
+    "title": "Forbidden Island 2",
+    "releaseYear": "2022",
+    "developer": "Island Games",
+    "publisher": "Paradise Studios",
+    "price": "59.99€"
+  },
+  {
+    "title": "Haunted Mansion",
+    "releaseYear": "1999",
+    "developer": "Ghost Games",
+    "publisher": "Spectral Studios",
+    "price": "4.99€"
+  },
+  {
+    "title": "Enchanted Forest 4",
+    "releaseYear": "2010",
+    "developer": "Fairy Games",
+    "publisher": "Magical Studios",
+    "price": "15.99€"
+  },
+  {
+    "title": "Lost Kingdom 4",
+    "releaseYear": "2023",
+    "developer": "Kingdom Games",
+    "publisher": "Empire Studios",
+    "price": "49.99€"
+  }
+]
