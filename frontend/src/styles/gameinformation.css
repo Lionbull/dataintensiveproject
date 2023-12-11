@@ -1,0 +1,73 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+h1, p {
+    margin: 0;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+p {
+    font-size: 2rem;
+}
+
+img {
+    width: 200px;
+}
+
+.game-outer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 4rem;
+}
+
+.game-wrapper-outer {
+    background-color: lightgray;
+    padding: 20px;
+    width: 1200px;
+    max-width: 1000px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+    gap: 200px;
+}
+
+.game-wrapper-right {
+    display: flex;
+    flex: 2;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.game-wrapper-right-wrapper-inner {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.game-wrapper-right-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.game-wrapper-left {
+    display: flex;
+    flex: 1;
+    align-items: flex-start;
+    justify-content: start;
+}
+
+.price {
+    font-size: 2.2rem;
+}

@@ -1,0 +1,60 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+h1, p {
+    margin: 0;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+p {
+    font-size: 2rem;
+}
+
+img {
+    width: 200px;
+}
+
+.developer-outer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 4rem;
+}
+
+.developer-wrapper-outer {
+    background-color: lightgray;
+    padding: 20px;
+    width: 800px;
+    max-width: 1000px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+    gap: 200px;
+}
+
+.developer-wrapper-right {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.developer-wrapper-right-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.developer-wrapper-left {
+    display: flex;
+    align-items: flex-start;
+    justify-content: start;
+}
