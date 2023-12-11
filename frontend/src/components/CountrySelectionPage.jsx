@@ -1,6 +1,6 @@
 // Flag image source: https://www.sciencekids.co.nz/pictures/flags.html
 import { Paper, Stack, Grid, ButtonBase, Typography } from '@mui/material';
-import Link from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import flagFi from '../assets/fi_vertical.jpg';
 import flagSe from '../assets/se_vertical.jpg';
 import flagNo from '../assets/no_vertical.jpg';
@@ -19,7 +19,7 @@ const paperContainer = (img) => ({
 
 const flagButton = (title, img) => {
     return <Paper style={paperContainer(img)}>
-        <ButtonBase variant="outlined" component={Link} to={"/games/" + title.toLowerCase()} sx={{ width: "100%", height: "100%" }}>
+        <ButtonBase variant="outlined" component={Link} to={"/games?" + title.toLowerCase()} sx={{ width: "100%", height: "100%" }}>
             <Stack sx={{ alignItems: "center", justifyContent: "center" }}>      
                 <Typography className="country-title" variant="button" fontSize="1rem">{title}</Typography>
             </Stack>
