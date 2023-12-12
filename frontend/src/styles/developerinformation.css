@@ -31,8 +31,6 @@ img {
 .developer-wrapper-outer {
     background-color: lightgray;
     padding: 20px;
-    width: 800px;
-    max-width: 1000px;
 
     display: flex;
     flex-direction: row;
