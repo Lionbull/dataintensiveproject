@@ -6,6 +6,7 @@ import PublisherInformation from "./components/PublisherInformation.jsx";
 import GameInformation from "./components/GameInformation.jsx";
 import GamesListPage from "./components/GamesListPage.jsx";
 
+
 const RouteSwitch = () => {
     return (
         <BrowserRouter>

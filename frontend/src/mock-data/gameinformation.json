@@ -1,0 +1,12 @@
+{
+    "name": "Game title",
+    "genre": "Action",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet convallis metus, sit amet faucibus metus condimentum bibendum. Vivamus blandit at urna eu tincidunt.",
+    "release_year": "1998",
+    "age_limit": "PG 12",
+    "price": "32€",
+    "platform": "PC",
+    "budget": "20 000 000 €",
+    "engine": "Unreal Engine",
+    "country": "FI"
+}
