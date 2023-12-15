@@ -1,4 +1,7 @@
 import {Box, Card, FormControl, InputLabel, MenuItem, Select, Typography} from "@mui/material";
+import React, { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+
 import "../styles/publisherinformation.css"
 
 // TEST DATA BELOW - REPLACE WITH DATABASE PROPS DATA
@@ -6,6 +9,28 @@ import mockData from "../mock-data/publisherinformation.json";
 // ADD props AND REMOVE 'mockData.' from the variables
 
 function PublisherInformation() {
+    const { country, id } = useParams();
+    console.log(country, id)
+    useEffect(() => {
+        
+        const apiUrl = `api/publisher/${country}/${id}`;
+    
+        const fetchData = async () => {
+          try {
+            const response = await fetch(apiUrl);
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+    
+            const data = await response.json();
+            console.log('Fetched data:', data);
+          } catch (error) {
+            console.error('Error fetching data:', error);
+          }
+        };
+    
+        fetchData();
+      }, []);
 
     return (
       <>

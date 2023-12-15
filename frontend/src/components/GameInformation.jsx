@@ -7,6 +7,8 @@ import mockData from "../mock-data/gameinformation.json";
 
 function gameInformation() {
 
+    
+
     return (
       <>
         <Box className="game-outer" >
