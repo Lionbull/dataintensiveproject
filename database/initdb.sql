@@ -1,45 +1,45 @@
 CREATE TABLE Developer(
     dev_id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-    dev_name TEXT(128),
-    dev_description TEXT(512),
-    number_of_employees NUMBER,
-    website TEXT(64),
-    founding_year NUMBER,
-    revenue NUMBER,
+    dev_name TEXT,
+    dev_description TEXT,
+    number_of_employees INT,
+    website TEXT,
+    founding_year INT,
+    revenue INT,
     img_url TEXT,
-    company_type TEXT(64)
-)
+    company_type TEXT
+);
 
 CREATE TABLE Publisher(
     pub_id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-    pub_name TEXT(128),
-    pub_description TEXT(512),
-    number_of_employees NUMBER,
-    website TEXT(64),
-    founding_year NUMBER,
-    revenue NUMBER,
+    pub_name TEXT,
+    pub_description TEXT,
+    number_of_employees INT,
+    website TEXT,
+    founding_year INT,
+    revenue INT,
     img_url TEXT,
-    company_type TEXT(64)
-)
+    company_type TEXT
+);
 
 CREATE TABLE Videogame(
     vg_id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     pub_id INT,
-    vg_name TEXT(128),
-    genre TEXT(32),
-    vg_description TEXT(512),
-    release_year NUMBER,
-    age_limit NUMBER,
-    price NUMBER,
-    platform ARRAY[],
-    budget NUMBER,
+    vg_name TEXT,
+    genre TEXT,
+    vg_description TEXT,
+    release_year INT,
+    age_limit INT,
+    price INT,
+    platform TEXT ARRAY,
+    budget INT,
     engine TEXT,
     country TEXT,
     img_url TEXT,
     CONSTRAINT fk_publisher
         FOREIGN KEY(pub_id) 
 	        REFERENCES Publisher(pub_id)
-)
+);
 
 CREATE TABLE ParticipatedDevelopers(
     vg_id INT,
@@ -51,4 +51,4 @@ CREATE TABLE ParticipatedDevelopers(
         FOREIGN KEY(dev_id)
             REFERENCES Developer(dev_id)
 
-)
+);
