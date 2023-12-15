@@ -10,6 +10,7 @@ Create fields to databases:
     psql -d diestonia -a -f ./database/initdb.sql
 
 Insert test data:
+    NOTICE: Estonia should replicate Sweden's data, so insert Swedish data to Estonia also
     psql -d difinland -a -f ./database/test_insert.sql
     psql -d disweden -a -f ./database/test_insert.sql
     psql -d dinorway -a -f ./database/test_insert.sql
