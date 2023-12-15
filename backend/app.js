@@ -1,3 +1,22 @@
+/*
+Create database:
+    psql -d existing_database -a -f ./database/init.sql
+
+Create fields to databases:
+    psql -d difinland -a -f ./database/initdb.sql
+    psql -d disweden -a -f ./database/initdb.sql
+    psql -d dinorway -a -f ./database/initdb.sql
+    psql -d didenmark -a -f ./database/initdb.sql
+    psql -d diestonia -a -f ./database/initdb.sql
+
+Insert test data:
+    psql -d difinland -a -f ./database/test_insert.sql
+    psql -d disweden -a -f ./database/test_insert.sql
+    psql -d dinorway -a -f ./database/test_insert.sql
+    psql -d didenmark -a -f ./database/test_insert.sql
+    psql -d diestonia -a -f ./database/test_insert.sql
+*/
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -14,10 +33,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api', apiRouter)
-
-app.get('/', function(req, res) {
-    res.json('Hello World!');
-})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

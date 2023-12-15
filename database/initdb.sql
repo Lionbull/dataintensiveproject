@@ -30,7 +30,7 @@ CREATE TABLE Videogame(
     vg_description TEXT,
     release_year INT,
     age_limit INT,
-    price INT,
+    price FLOAT,
     platform TEXT ARRAY,
     budget INT,
     engine TEXT,
