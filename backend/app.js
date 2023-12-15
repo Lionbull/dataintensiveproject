@@ -1,23 +1,3 @@
-/*
-Create database:
-    psql -d existing_database -a -f ./database/init.sql
-
-Create fields to databases:
-    psql -d difinland -a -f ./database/initdb.sql
-    psql -d disweden -a -f ./database/initdb.sql
-    psql -d dinorway -a -f ./database/initdb.sql
-    psql -d didenmark -a -f ./database/initdb.sql
-    psql -d diestonia -a -f ./database/initdb.sql
-
-Insert test data:
-    NOTICE: Estonia should replicate Sweden's data, so insert Swedish data to Estonia also
-    psql -d difinland -a -f ./database/test_insert.sql
-    psql -d disweden -a -f ./database/test_insert.sql
-    psql -d dinorway -a -f ./database/test_insert.sql
-    psql -d didenmark -a -f ./database/test_insert.sql
-    psql -d diestonia -a -f ./database/test_insert.sql
-*/
-
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
