@@ -33,8 +33,8 @@ const DropdownFilter = ({property, name, filters, setFilters}) => {
 const Filters = ({filters, setFilters}) => {
     return (
         <Box sx={{display: "flex", justifyContent: "center", gap: "16px"}}>
-            <DropdownFilter property="title" name="Title" filters={filters} setFilters={setFilters}/>
-            <DropdownFilter property="releaseYear" name="Release Year" filters={filters} setFilters={setFilters}/>
+            <DropdownFilter property="vg_name" name="Name" filters={filters} setFilters={setFilters}/>
+            <DropdownFilter property="release_year" name="Release Year" filters={filters} setFilters={setFilters}/>
             <DropdownFilter property="price" name="Price" filters={filters} setFilters={setFilters}/>
         </Box>
     );
@@ -75,8 +75,7 @@ const GamesListPage = () => {
                     throw new Error('Network response was not ok');
                 }
                 const data = await response.json();
-                // setGames(data);
-                setGames(filter(data, filters));
+                setGames(data);
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
@@ -84,7 +83,7 @@ const GamesListPage = () => {
         fetchData();
     }, []);
 
-    // const filteredData = filter(games, filters);
+    const filteredData = filter(games, filters);
 
     return (
         <Box sx={{display: "flex", flexDirection: "column", justifyContent: "center", gap: "32px"}}>
@@ -94,7 +93,7 @@ const GamesListPage = () => {
             </Box>
             <Filters filters={filters} setFilters={setFilters}/>
             <Box sx={{display: "flex", justifyContent: "center", flexWrap: "wrap", width: "992px", gap: "16px"}}>
-                {games.map((game, i) => <GameInfoCard {...game} key={i}/>)}
+                {filteredData.map((game, i) => <GameInfoCard {...game} key={i}/>)}
             </Box>
         </Box>
 
