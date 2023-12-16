@@ -40,7 +40,7 @@ function PublisherInformation() {
       <>
       {publisherData ? (
         <div>
-          <Card className="publisher-outer" sx={{width: "1200px"}}>
+          <Card className="publisher-outer">
             <Box className="publisher-wrapper-outer">
 
                 <Box className="publisher-wrapper-left">
