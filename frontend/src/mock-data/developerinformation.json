@@ -1,9 +1,42 @@
-{
-    "name": "Developer Title",
+[{
+    "name": "Developer 1",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet convallis metus, sit amet faucibus metus condimentum bibendum. Vivamus blandit at urna eu tincidunt.",
     "number_of_employees": "100500",
     "website": "test.url.com",
     "founding_year": "2001",
     "revenue": "9 999 999 €",
     "company_type": "Indie / AAA"
-}
+}, 
+{
+    "name": "Developer 2",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet convallis metus, sit amet faucibus metus condimentum bibendum. Vivamus blandit at urna eu tincidunt.",
+    "number_of_employees": "100500",
+    "website": "test.url.com",
+    "founding_year": "2001",
+    "revenue": "9 999 999 €",
+    "company_type": "Indie / AAA"
+}, {
+    "name": "Developer 3",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet convallis metus, sit amet faucibus metus condimentum bibendum. Vivamus blandit at urna eu tincidunt.",
+    "number_of_employees": "100500",
+    "website": "test.url.com",
+    "founding_year": "2001",
+    "revenue": "9 999 999 €",
+    "company_type": "Indie / AAA"
+}, {
+    "name": "Developer 4",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet convallis metus, sit amet faucibus metus condimentum bibendum. Vivamus blandit at urna eu tincidunt.",
+    "number_of_employees": "100500",
+    "website": "test.url.com",
+    "founding_year": "2001",
+    "revenue": "9 999 999 €",
+    "company_type": "Indie / AAA"
+}, {
+    "name": "Developer 5",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet convallis metus, sit amet faucibus metus condimentum bibendum. Vivamus blandit at urna eu tincidunt.",
+    "number_of_employees": "100500",
+    "website": "test.url.com",
+    "founding_year": "2001",
+    "revenue": "9 999 999 €",
+    "company_type": "Indie / AAA"
+}]

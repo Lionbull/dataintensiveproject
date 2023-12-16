@@ -42,7 +42,7 @@ function DeveloperInformation() {
       <>
       {developerData ? (
         <div>
-          <Card className="developer-outer" sx={{width: "1200px"}}>
+          <Card className="developer-outer">
             <Box className="developer-wrapper-outer">
 
                 <Box className="developer-wrapper-left">
