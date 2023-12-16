@@ -19,7 +19,7 @@ const paperContainer = (img) => ({
 
 const flagButton = (title, img) => {
     return <Paper style={paperContainer(img)}>
-        <ButtonBase variant="outlined" component={Link} to={"/games?country=" + title} sx={{ width: "100%", height: "100%" }}>
+        <ButtonBase variant="outlined" component={Link} to={"/games/" + title} sx={{ width: "100%", height: "100%" }}>
             <Stack sx={{ alignItems: "center", justifyContent: "center" }}>      
                 <Typography className="country-title" variant="button" fontSize="1rem">{title}</Typography>
             </Stack>
@@ -35,19 +35,19 @@ const CountrySelectionPage = () => {
                 <div className="flag-box-wrapper">
                     <Grid container spacing={{ xs: 4, md: 5 }} columns={{ xs: 1, sm: 3, md: 5 }} alignItems="center" justifyContent="center">
                         <Grid item xs={1} align="center">
-                            {flagButton("Finland", flagFi)}
+                            {flagButton("finland", flagFi)}
                         </Grid>
                         <Grid item xs={1} align="center">
-                            {flagButton("Sweden", flagSe)}
+                            {flagButton("sweden", flagSe)}
                         </Grid>
                         <Grid item xs={1} align="center">
-                            {flagButton("Norway", flagNo)}
+                            {flagButton("norway", flagNo)}
                         </Grid>
                         <Grid item xs={1} align="center">
-                            {flagButton("Denmark", flagDk)}
+                            {flagButton("denmark", flagDk)}
                         </Grid>
                         <Grid item xs={1} align="center">
-                            {flagButton("Estonia", flagEe)}
+                            {flagButton("estonia", flagEe)}
                         </Grid>
                     </Grid>
                 </div>

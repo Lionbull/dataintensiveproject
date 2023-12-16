@@ -13,7 +13,7 @@ const RouteSwitch = () => {
             <Header/>
             <Routes>
                 <Route path="/" element={<CountrySelectionPage/>}/>
-                <Route path="/games" element={<GamesListPage country={'Finland'}/>}/>
+                <Route path="/games/:country" element={<GamesListPage/>}/>
                 <Route path="/developer/:country/:id" element={<DeveloperInformation/>}/>
                 <Route path="/publisher/:country/:id" element={<PublisherInformation/>}/>
                 <Route path="/game/:country/:id" element={<GameInformation/>}/>

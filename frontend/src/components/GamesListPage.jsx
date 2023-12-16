@@ -1,13 +1,15 @@
-import {Box, Card, FormControl, InputLabel, MenuItem, Select, Typography} from "@mui/material";
-import {useState} from "react";
+import {Box, Card, FormControl, InputLabel, MenuItem, Select, Typography, Link} from "@mui/material";
+import {useEffect, useState} from "react";
 import fiFlag from "../assets/fi.svg";
 import controllerImg from "../assets/controller.webp"
 import mockData from "../mock-data/games.json";
 import filter from "../utils/filter.js";
+import config from "../config.js";
+import {useParams} from "react-router-dom";
 
 const emptyFilters = {
-    title: "",
-    releaseYear: "",
+    vg_name: "",
+    release_year: "",
     price: ""
 };
 
@@ -38,19 +40,20 @@ const Filters = ({filters, setFilters}) => {
     );
 };
 
-const GameInfoCard = ({title, releaseYear, developer, publisher, price}) => {
+const GameInfoCard = ({vg_name, vg_id, release_year, developer, publisher, price}) => {
+    const {country} = useParams();
     return(
         <Card sx={{width: "256px"}}>
             <Box component="img" src={controllerImg} sx={{width: '100%'}}/>
             <Box sx={{display: "flex", padding: "8px"}}>
                 <Box sx={{width: "60%"}}>
-                    <Typography>{title}</Typography>
-                    <Typography>{releaseYear}</Typography>
+                    <Link href={`/game/${country}/${vg_id}`} sx={{ fontWeight: 'bold' }}>{vg_name}</Link>
+                    <Typography>{release_year}</Typography>
                     <Typography>{developer}</Typography>
                     <Typography>{publisher}</Typography>
                 </Box>
                 <Box sx={{width: "40%", display: "flex", flexDirection: "column-reverse", alignItems: "flex-end"}}>
-                    <Typography>{price}</Typography>
+                    <Typography>{price} €</Typography>
                 </Box>
             </Box>
         </Card>
@@ -59,8 +62,29 @@ const GameInfoCard = ({title, releaseYear, developer, publisher, price}) => {
 
 const GamesListPage = () => {
     const [filters, setFilters] = useState(emptyFilters);
+    const [games, setGames] = useState([]);
+    const {country} = useParams();
 
-    const filteredData = filter(mockData, filters);
+    useEffect(() => {
+        const fetchData = async () => {
+            const apiUrl = `${config.uri}/api/games/${country}`;
+
+            try {
+                const response = await fetch(apiUrl)
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+                // setGames(data);
+                setGames(filter(data, filters));
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+        fetchData();
+    }, []);
+
+    // const filteredData = filter(games, filters);
 
     return (
         <Box sx={{display: "flex", flexDirection: "column", justifyContent: "center", gap: "32px"}}>
@@ -70,7 +94,7 @@ const GamesListPage = () => {
             </Box>
             <Filters filters={filters} setFilters={setFilters}/>
             <Box sx={{display: "flex", justifyContent: "center", flexWrap: "wrap", width: "992px", gap: "16px"}}>
-                {filteredData.map((game, i) => <GameInfoCard {...game} key={i}/>)}
+                {games.map((game, i) => <GameInfoCard {...game} key={i}/>)}
             </Box>
         </Box>
 
