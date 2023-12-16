@@ -5,8 +5,10 @@ import {Link as RouterLink, useParams} from "react-router-dom";
 import config from "../config.js";
 import getFlagSvg from "../utils/getFlagSvg.js";
 import ListOfCategories from "./ListOfCategories.jsx";
+
 const PublisherInfoCard = ({pub_name, pub_id, founding_year, company_type}) => {
     const {country} = useParams();
+
     return(
         <Card sx={{width: "280px", height: '500px'}}>
             <Box component="img" src={controllerImg} sx={{width: '100%'}}/>
@@ -30,15 +32,13 @@ const PublisherInfoCard = ({pub_name, pub_id, founding_year, company_type}) => {
 const PublisherListPage = () => {
     const [publishers, setPublishers] = useState([]);
     const {country} = useParams();
+    const flagPath = getFlagSvg(country);
 
     useEffect(() => {
         const fetchData = async () => {
-            const apiUrl = `${config.uri}/api/publishers/${country}`;
             try {
-                const response = await fetch(apiUrl);
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
+                const response = await fetch(`${config.uri}/api/publishers/${country}`);
+                if (!response.ok) throw new Error('Network response was not ok');
                 const data = await response.json();
                 setPublishers(data);
             } catch (error) {
@@ -47,9 +47,6 @@ const PublisherListPage = () => {
         }
         fetchData();
     }, []);
-
-    const flagPath = getFlagSvg(country);
-
 
     return (
         <Box sx={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: 'center', gap: "32px"}}>

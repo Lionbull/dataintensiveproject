@@ -1,33 +1,24 @@
-import {Box, Card, FormControl, InputLabel, MenuItem, Select, Typography} from "@mui/material";
-import React, {useState, useEffect} from 'react';
+import {Box, Card, Typography} from "@mui/material";
+import {useState, useEffect} from 'react';
 import {useParams} from 'react-router-dom';
 import config from "../config.js";
 import controllerImg from "../assets/controller.webp";
 
 function PublisherInformation() {
     const [publisherData, setPublisherData] = useState(null);
-
-
     const {country, id} = useParams();
-    console.log(country, id)
+
     useEffect(() => {
-        const apiUrl = `${config.uri}/api/publisher/${country}/${id}`;
         const fetchData = async () => {
             try {
-                const response = await fetch(apiUrl);
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-
+                const response = await fetch(`${config.uri}/api/publisher/${country}/${id}`);
+                if (!response.ok) throw new Error('Network response was not ok');
                 const data = await response.json();
-                console.log('Fetched data:', data);
                 setPublisherData(data);
-                console.log(publisherData)
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
         };
-
         fetchData();
     }, []);
 
@@ -83,7 +74,7 @@ function PublisherInformation() {
                     </Box>
                 </Card>
             ) : (
-                <p>Loading...</p>
+                <Typography variant="subtitle1">Loading...</Typography>
             )}
         </Box>
     )

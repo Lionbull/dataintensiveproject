@@ -24,6 +24,6 @@ const filter = (data, filters) => {
     }
 
     return filteData;
-}
+};
 
 export default filter;

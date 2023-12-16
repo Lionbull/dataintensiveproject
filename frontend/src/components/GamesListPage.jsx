@@ -80,16 +80,13 @@ const GamesListPage = () => {
     const [filters, setFilters] = useState(emptyFilters);
     const [games, setGames] = useState([]);
     const {country} = useParams();
+    const flagPath = getFlagSvg(country);
 
     useEffect(() => {
         const fetchData = async () => {
-            const apiUrl = `${config.uri}/api/games/${country}`;
-
             try {
-                const response = await fetch(apiUrl)
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
+                const response = await fetch(`${config.uri}/api/games/${country}`)
+                if (!response.ok) throw new Error('Network response was not ok');
                 const data = await response.json();
                 setGames(data);
             } catch (error) {
@@ -100,8 +97,6 @@ const GamesListPage = () => {
     }, []);
 
     const filteredData = filter(games, filters);
-
-    const flagPath = getFlagSvg(country);
 
     return (
         <Box sx={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: 'center', gap: "32px"}}>
@@ -115,7 +110,6 @@ const GamesListPage = () => {
                 {filteredData.map((game, i) => <GameInfoCard {...game} key={i}/>)}
             </Box>
         </Box>
-
     );
 };
 

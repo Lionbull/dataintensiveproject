@@ -1,6 +1,5 @@
 import {Link as RouterLink, useParams} from "react-router-dom";
 import {Box, Link} from "@mui/material";
-import * as React from "react";
 
 const ListOfCategories = () => {
     const {country} = useParams();

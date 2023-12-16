@@ -17,4 +17,4 @@ export default function getFlagSvg(country) {
         case "sweden":
             return seSvg;
     }
-}
+};

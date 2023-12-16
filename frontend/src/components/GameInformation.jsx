@@ -1,28 +1,20 @@
-import {Box, Card, FormControl, InputLabel, MenuItem, Select, Typography} from "@mui/material";
-import React, {useState, useEffect} from 'react';
+import {Box, Card, Typography} from "@mui/material";
+import {useState, useEffect} from 'react';
 import {useParams} from 'react-router-dom';
 import controllerImg from "../assets/controller.webp"
 import config from "../config.js";
 
 function GameInformation() {
     const [gameData, setGameData] = useState(null);
-
     const {country, id} = useParams();
-    console.log(country, id)
+
     useEffect(() => {
-        const apiUrl = `${config.uri}/api/game/${country}/${id}`
-        console.log(apiUrl)
         const fetchData = async () => {
             try {
-                const response = await fetch(apiUrl);
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-
+                const response = await fetch(`${config.uri}/api/game/${country}/${id}`);
+                if (!response.ok) throw new Error('Network response was not ok');
                 const data = await response.json();
-                console.log('Fetched data:', data);
                 setGameData(data);
-                console.log(gameData)
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
@@ -69,7 +61,6 @@ function GameInformation() {
             ) : (
                 <Typography variant="subtitle1">Loading...</Typography>
             )}
-
         </Box>
     )
 }

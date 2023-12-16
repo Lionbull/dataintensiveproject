@@ -9,24 +9,16 @@ function DeveloperInformation() {
     const {country, id} = useParams();
 
     useEffect(() => {
-        const apiUrl = `${config.uri}/api/developer/${country}/${id}`;
-        console.log(apiUrl)
         const fetchData = async () => {
             try {
-                const response = await fetch(apiUrl);
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-
+                const response = await fetch(`${config.uri}/api/developer/${country}/${id}`);
+                if (!response.ok) throw new Error('Network response was not ok');
                 const data = await response.json();
-                console.log('Fetched data:', data);
                 setDeveloperData(data)
-                console.log(developerData)
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
         };
-
         fetchData();
     }, []);
 
@@ -66,7 +58,7 @@ function DeveloperInformation() {
                     </Box>
                 </Card>
             ) : (
-                <Typography>Loading...</Typography>
+                <Typography variant="subtitle1">Loading...</Typography>
             )}
         </Box>
     )

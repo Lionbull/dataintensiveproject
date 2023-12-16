@@ -32,15 +32,13 @@ const DeveloperInfoCard = ({dev_name, dev_id, founding_year, company_type}) => {
 const DeveloperListPage = () => {
     const [developers, setDevelopers] = useState([]);
     const {country} = useParams();
+    const flagPath = getFlagSvg(country);
 
     useEffect(() => {
         const fetchData = async () => {
-            const apiUrl = `${config.uri}/api/developers/${country}`;
             try {
-                const response = await fetch(apiUrl);
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
+                const response = await fetch(`${config.uri}/api/developers/${country}`);
+                if (!response.ok) throw new Error('Network response was not ok');
                 const data = await response.json();
                 setDevelopers(data);
             } catch (error) {
@@ -49,9 +47,6 @@ const DeveloperListPage = () => {
         }
         fetchData();
     }, []);
-
-    const flagPath = getFlagSvg(country);
-
 
     return (
         <Box sx={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: 'center', gap: "32px"}}>
