@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 
 //TEST DATA BELOW - REPLACE WITH DATABASE PROPS DATA
 import mockData from "../mock-data/gameinformation.json";
+import controllerImg from "../assets/controller.webp"
 import config from "../config.js";
 
 // ! ! NOTE ! !
@@ -47,7 +48,7 @@ function GameInformation() {
                 <Box className="game-wrapper-outer">
 
                     <Box className="game-wrapper-left">
-                        <Box component="img" src={"https://media.istockphoto.com/id/1439837596/photo/blank-tv-or-picture-frame-with-copy-space.webp?b=1&s=170667a&w=0&k=20&c=OZmkq3tJ1nXJ_DzOsTHQlnMi8VVZX6EZrJP8Mb1V844="} sx={{width: '250px', height: "auto"}}/>
+                        <Box component="img" src={controllerImg} sx={{width: '250px', height: "auto"}}/>
                     </Box>
                     
                     <Box className="game-wrapper-right">

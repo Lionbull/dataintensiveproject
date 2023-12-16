@@ -4,7 +4,8 @@ import fiFlag from "../assets/fi.svg";
 import controllerImg from "../assets/controller.webp"
 import mockData from "../mock-data/developerinformation.json";
 
-
+// ! ! NOTE ! !
+// ADD REAL DATA + SORT BY YEAR?
 
 const DeveloperInfoCard = ({name, founding_year, website}) => {
     return(
