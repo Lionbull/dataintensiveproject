@@ -5,6 +5,7 @@ import DeveloperInformation from "./components/DeveloperInformation.jsx";
 import PublisherInformation from "./components/PublisherInformation.jsx";
 import GameInformation from "./components/GameInformation.jsx";
 import GamesListPage from "./components/GamesListPage.jsx";
+import DeveloperListPage from "./components/DeveloperListPage.jsx";
 
 
 const RouteSwitch = () => {
@@ -17,6 +18,7 @@ const RouteSwitch = () => {
                 <Route path="/developer/:country/:id" element={<DeveloperInformation/>}/>
                 <Route path="/publisher/:country/:id" element={<PublisherInformation/>}/>
                 <Route path="/game/:country/:id" element={<GameInformation/>}/>
+                <Route path="/devlist/" element={<DeveloperListPage/>}/>
             </Routes>
         </BrowserRouter>
     )
