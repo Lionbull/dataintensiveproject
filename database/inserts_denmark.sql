@@ -17,10 +17,18 @@ VALUES
 ('FrozenInnovation Hub Denmark', 'Fostering innovation in the frozen lands in Denmark', 50, 'http://frozeninnovation.dk', 2018, 3000000, 'http://frozeninnovation.dk/logo.png', 'Innovation', 'DK');
 
 -- Denmark Videogames
-INSERT INTO Videogame(pub_id, vg_name, genre, vg_description, release_year, age_limit, price, platform, budget, engine, country, img_url)
+INSERT INTO Videogame(pub_id, dev_id, vg_name, genre, vg_description, release_year, age_limit, price, platform, budget, engine, country, img_url)
 VALUES 
-(1, 'Danish Winter Tales', 'Adventure', 'Embark on chilly Danish winter adventures', 2021, 10, 29.99, ARRAY['PC', 'Mac', 'Linux'], 5500000, 'DanishFrostEngine', 'DK', 'http://arctictech.dk/danish_winter_tales.png'),
-(2, 'NinjaCoder Denmark', 'Action', 'Become a master coder and ninja warrior in Denmark', 2019, 12, 19.99, ARRAY['PC', 'PlayStation', 'Xbox'], 3300000, 'NinjaCodeEngineDenmark', 'DK', 'http://codeninjas.dk/ninja_coder_denmark.png'),
-(3, 'FrozenWeb Magic Denmark', 'Simulation', 'Craft magic in a frozen web environment in Denmark', 2022, 9, 39.99, ARRAY['PC', 'Mac'], 5800000, 'IceMagicDenmark', 'DK', 'http://icewebwizards.dk/frozenweb_magic_denmark.png'),
-(4, 'PolarData Simulator Denmark', 'Simulation', 'Simulate polar data scenarios in Denmark', 2020, 13, 49.99, ARRAY['PC', 'Mac'], 2300000, 'DataSimulatorDenmark', 'DK', 'http://datapolar.dk/polar_data_simulator_denmark.png'),
-(5, 'FrozenInnovator Tycoon Denmark', 'Simulation', 'Build your own frozen innovation empire in Denmark', 2021, 15, 34.99, ARRAY['PC', 'Mac', 'Linux'], 3000000, 'FrozenInnovationCraftDenmark', 'DK', 'http://frozeninnovation.dk/frozeninnovator_tycoon_denmark.png');
+(1, 1, 'Danish Winter Tales', 'Adventure', 'Embark on chilly Danish winter adventures', 2021, 10, 29.99, ARRAY['PC', 'Mac', 'Linux'], 5500000, 'DanishFrostEngine', 'DK', 'http://arctictech.dk/danish_winter_tales.png'),
+(2, 2, 'NinjaCoder Denmark', 'Action', 'Become a master coder and ninja warrior in Denmark', 2019, 12, 19.99, ARRAY['PC', 'PlayStation', 'Xbox'], 3300000, 'NinjaCodeEngineDenmark', 'DK', 'http://codeninjas.dk/ninja_coder_denmark.png'),
+(3, 3, 'FrozenWeb Magic Denmark', 'Simulation', 'Craft magic in a frozen web environment in Denmark', 2022, 9, 39.99, ARRAY['PC', 'Mac'], 5800000, 'IceMagicDenmark', 'DK', 'http://icewebwizards.dk/frozenweb_magic_denmark.png'),
+(4, 4, 'PolarData Simulator Denmark', 'Simulation', 'Simulate polar data scenarios in Denmark', 2020, 13, 49.99, ARRAY['PC', 'Mac'], 2300000, 'DataSimulatorDenmark', 'DK', 'http://datapolar.dk/polar_data_simulator_denmark.png'),
+(5, 5, 'FrozenInnovator Tycoon Denmark', 'Simulation', 'Build your own frozen innovation empire in Denmark', 2021, 15, 34.99, ARRAY['PC', 'Mac', 'Linux'], 3000000, 'FrozenInnovationCraftDenmark', 'DK', 'http://frozeninnovation.dk/frozeninnovator_tycoon_denmark.png');
+
+INSERT INTO ParticipatedDevelopers(vg_id, dev_id)
+VALUES
+(1,1),
+(2,2),
+(3,3),
+(4,4),
+(5,5);

@@ -17,10 +17,18 @@ VALUES
 ('FrozenInnovation Hub Estonia', 'Fostering innovation in the frozen lands in Estonia', 30, 'http://frozeninnovation.ee', 2016, 1800000, 'http://frozeninnovation.ee/logo.png', 'Innovation', 'EE');
 
 -- Estonia Videogames
-INSERT INTO Videogame(pub_id, vg_name, genre, vg_description, release_year, age_limit, price, platform, budget, engine, country, img_url)
+INSERT INTO Videogame(pub_id, dev_id, vg_name, genre, vg_description, release_year, age_limit, price, platform, budget, engine, country, img_url)
 VALUES 
-(1, 'Estonian Winter Tales', 'Adventure', 'Embark on chilly Estonian winter adventures', 2022, 10, 29.99, ARRAY['PC', 'Mac', 'Linux'], 3500000, 'EstonianFrostEngine', 'EE', 'http://arctictech.ee/estonian_winter_tales.png'),
-(2, 'NinjaCoder Estonia', 'Action', 'Become a master coder and ninja warrior in Estonia', 2020, 12, 19.99, ARRAY['PC', 'PlayStation', 'Xbox'], 2200000, 'NinjaCodeEngineEstonia', 'EE', 'http://codeninjas.ee/ninja_coder_estonia.png'),
-(3, 'FrozenWeb Magic Estonia', 'Simulation', 'Craft magic in a frozen web environment in Estonia', 2021, 9, 39.99, ARRAY['PC', 'Mac'], 3800000, 'IceMagicEstonia', 'EE', 'http://icewebwizards.ee/frozenweb_magic_estonia.png'),
-(4, 'PolarData Simulator Estonia', 'Simulation', 'Simulate polar data scenarios in Estonia', 2019, 13, 49.99, ARRAY['PC', 'Mac'], 1400000, 'DataSimulatorEstonia', 'EE', 'http://datapolar.ee/polar_data_simulator_estonia.png'),
-(5, 'FrozenInnovator Tycoon Estonia', 'Simulation', 'Build your own frozen innovation empire in Estonia', 2020, 15, 34.99, ARRAY['PC', 'Mac', 'Linux'], 1800000, 'FrozenInnovationCraftEstonia', 'EE', 'http://frozeninnovation.ee/frozeninnovator_tycoon_estonia.png');
+(1, 1, 'Estonian Winter Tales', 'Adventure', 'Embark on chilly Estonian winter adventures', 2022, 10, 29.99, ARRAY['PC', 'Mac', 'Linux'], 3500000, 'EstonianFrostEngine', 'EE', 'http://arctictech.ee/estonian_winter_tales.png'),
+(2, 2, 'NinjaCoder Estonia', 'Action', 'Become a master coder and ninja warrior in Estonia', 2020, 12, 19.99, ARRAY['PC', 'PlayStation', 'Xbox'], 2200000, 'NinjaCodeEngineEstonia', 'EE', 'http://codeninjas.ee/ninja_coder_estonia.png'),
+(3, 3, 'FrozenWeb Magic Estonia', 'Simulation', 'Craft magic in a frozen web environment in Estonia', 2021, 9, 39.99, ARRAY['PC', 'Mac'], 3800000, 'IceMagicEstonia', 'EE', 'http://icewebwizards.ee/frozenweb_magic_estonia.png'),
+(4, 4, 'PolarData Simulator Estonia', 'Simulation', 'Simulate polar data scenarios in Estonia', 2019, 13, 49.99, ARRAY['PC', 'Mac'], 1400000, 'DataSimulatorEstonia', 'EE', 'http://datapolar.ee/polar_data_simulator_estonia.png'),
+(5, 5, 'FrozenInnovator Tycoon Estonia', 'Simulation', 'Build your own frozen innovation empire in Estonia', 2020, 15, 34.99, ARRAY['PC', 'Mac', 'Linux'], 1800000, 'FrozenInnovationCraftEstonia', 'EE', 'http://frozeninnovation.ee/frozeninnovator_tycoon_estonia.png');
+
+INSERT INTO ParticipatedDevelopers(vg_id, dev_id)
+VALUES
+(1,1),
+(2,2),
+(3,3),
+(4,4),
+(5,5);

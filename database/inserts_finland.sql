@@ -17,10 +17,18 @@ VALUES
 ('FrozenInnovation Hub', 'Fostering innovation in the frozen lands', 40, 'http://frozeninnovation.fi', 2015, 2500000, 'http://frozeninnovation.fi/logo.png', 'Innovation', 'FI');
 
 -- Finland Videogames
-INSERT INTO Videogame(pub_id, vg_name, genre, vg_description, release_year, age_limit, price, platform, budget, engine, country, img_url)
+INSERT INTO Videogame(pub_id, dev_id, vg_name, genre, vg_description, release_year, age_limit, price, platform, budget, engine, country, img_url)
 VALUES 
-(1, 'Arctic Adventures', 'Adventure', 'Embark on chilly arctic adventures', 2020, 10, 29.99, ARRAY['PC', 'Mac', 'Linux'], 4000000, 'FrostEngine', 'FI', 'http://arctictech.fi/arctic_adventures.png'),
-(2, 'NinjaCoder', 'Action', 'Become a master coder and ninja warrior', 2018, 12, 19.99, ARRAY['PC', 'PlayStation', 'Xbox'], 3000000, 'NinjaCodeEngine', 'FI', 'http://codeninjas.fi/ninja_coder.png'),
-(3, 'FrozenWeb Magic', 'Simulation', 'Craft magic in a frozen web environment', 2021, 8, 39.99, ARRAY['PC', 'Mac'], 5000000, 'IceMagic', 'FI', 'http://icewebwizards.fi/frozenweb_magic.png'),
-(4, 'PolarData Simulator', 'Simulation', 'Simulate polar data scenarios', 2019, 13, 49.99, ARRAY['PC', 'Mac'], 1800000, 'DataSimulator', 'FI', 'http://datapolar.fi/polar_data_simulator.png'),
-(5, 'FrozenInnovator Tycoon', 'Simulation', 'Build your own frozen innovation empire', 2020, 15, 34.99, ARRAY['PC', 'Mac', 'Linux'], 2500000, 'FrozenInnovationCraft', 'FI', 'http://frozeninnovation.fi/frozeninnovator_tycoon.png');
+(1, 1, 'Arctic Adventures', 'Adventure', 'Embark on chilly arctic adventures', 2020, 10, 29.99, ARRAY['PC', 'Mac', 'Linux'], 4000000, 'FrostEngine', 'FI', 'http://arctictech.fi/arctic_adventures.png'),
+(2, 2, 'NinjaCoder', 'Action', 'Become a master coder and ninja warrior', 2018, 12, 19.99, ARRAY['PC', 'PlayStation', 'Xbox'], 3000000, 'NinjaCodeEngine', 'FI', 'http://codeninjas.fi/ninja_coder.png'),
+(3, 3, 'FrozenWeb Magic', 'Simulation', 'Craft magic in a frozen web environment', 2021, 8, 39.99, ARRAY['PC', 'Mac'], 5000000, 'IceMagic', 'FI', 'http://icewebwizards.fi/frozenweb_magic.png'),
+(4, 4, 'PolarData Simulator', 'Simulation', 'Simulate polar data scenarios', 2019, 13, 49.99, ARRAY['PC', 'Mac'], 1800000, 'DataSimulator', 'FI', 'http://datapolar.fi/polar_data_simulator.png'),
+(5, 5, 'FrozenInnovator Tycoon', 'Simulation', 'Build your own frozen innovation empire', 2020, 15, 34.99, ARRAY['PC', 'Mac', 'Linux'], 2500000, 'FrozenInnovationCraft', 'FI', 'http://frozeninnovation.fi/frozeninnovator_tycoon.png');
+
+INSERT INTO ParticipatedDevelopers(vg_id, dev_id)
+VALUES
+(1,1),
+(2,2),
+(3,3),
+(4,4),
+(5,5);

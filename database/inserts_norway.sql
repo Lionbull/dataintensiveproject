@@ -19,8 +19,16 @@ VALUES
 -- Norway Videogames
 INSERT INTO Videogame(pub_id, vg_name, genre, vg_description, release_year, age_limit, price, platform, budget, engine, country, img_url)
 VALUES 
-(1, 'Norwegian Winter Tales', 'Adventure', 'Embark on chilly Norwegian winter adventures', 2020, 10, 29.99, ARRAY['PC', 'Mac', 'Linux'], 4800000, 'NorwegianFrostEngine', 'NO', 'http://arctictech.no/norwegian_winter_tales.png'),
-(2, 'NinjaCoder Norway', 'Action', 'Become a master coder and ninja warrior in Norway', 2018, 12, 19.99, ARRAY['PC', 'PlayStation', 'Xbox'], 2900000, 'NinjaCodeEngineNorway', 'NO', 'http://codeninjas.no/ninja_coder_norway.png'),
-(3, 'FrozenWeb Magic Norway', 'Simulation', 'Craft magic in a frozen web environment in Norway', 2021, 9, 39.99, ARRAY['PC', 'Mac'], 5100000, 'IceMagicNorway', 'NO', 'http://icewebwizards.no/frozenweb_magic_norway.png'),
-(4, 'PolarData Simulator Norway', 'Simulation', 'Simulate polar data scenarios in Norway', 2019, 13, 49.99, ARRAY['PC', 'Mac'], 1900000, 'DataSimulatorNorway', 'NO', 'http://datapolar.no/polar_data_simulator_norway.png'),
-(5, 'FrozenInnovator Tycoon Norway', 'Simulation', 'Build your own frozen innovation empire in Norway', 2020, 15, 34.99, ARRAY['PC', 'Mac', 'Linux'], 2600000, 'FrozenInnovationCraftNorway', 'NO', 'http://frozeninnovation.no/frozeninnovator_tycoon_norway.png');
+(1, 1, 'Norwegian Winter Tales', 'Adventure', 'Embark on chilly Norwegian winter adventures', 2020, 10, 29.99, ARRAY['PC', 'Mac', 'Linux'], 4800000, 'NorwegianFrostEngine', 'NO', 'http://arctictech.no/norwegian_winter_tales.png'),
+(2, 2, 'NinjaCoder Norway', 'Action', 'Become a master coder and ninja warrior in Norway', 2018, 12, 19.99, ARRAY['PC', 'PlayStation', 'Xbox'], 2900000, 'NinjaCodeEngineNorway', 'NO', 'http://codeninjas.no/ninja_coder_norway.png'),
+(3, 3, 'FrozenWeb Magic Norway', 'Simulation', 'Craft magic in a frozen web environment in Norway', 2021, 9, 39.99, ARRAY['PC', 'Mac'], 5100000, 'IceMagicNorway', 'NO', 'http://icewebwizards.no/frozenweb_magic_norway.png'),
+(4, 4, 'PolarData Simulator Norway', 'Simulation', 'Simulate polar data scenarios in Norway', 2019, 13, 49.99, ARRAY['PC', 'Mac'], 1900000, 'DataSimulatorNorway', 'NO', 'http://datapolar.no/polar_data_simulator_norway.png'),
+(5, 5, 'FrozenInnovator Tycoon Norway', 'Simulation', 'Build your own frozen innovation empire in Norway', 2020, 15, 34.99, ARRAY['PC', 'Mac', 'Linux'], 2600000, 'FrozenInnovationCraftNorway', 'NO', 'http://frozeninnovation.no/frozeninnovator_tycoon_norway.png');
+
+INSERT INTO ParticipatedDevelopers(vg_id, dev_id)
+VALUES
+(1,1),
+(2,2),
+(3,3),
+(4,4),
+(5,5);

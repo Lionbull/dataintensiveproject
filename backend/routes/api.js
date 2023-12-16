@@ -19,7 +19,7 @@ router.get('/games/:country', async function (req, res) {
         database: `di${country}`,
     });
     await client.connect();
-    result = await client.query('SELECT * FROM Videogame;');
+    result = await client.query('SELECT vg.*, pub.pub_name, dev.dev_name FROM Videogame vg INNER JOIN Publisher pub ON vg.pub_id = pub.pub_id INNER JOIN Developer dev on vg.dev_id = dev.dev_id;');
     await client.end();
 
     return res.json(result.rows)
@@ -37,7 +37,7 @@ router.get('/game/:country/:id', async function (req, res) {
         database: `di${country}`,
     });
     await client.connect();
-    result = await client.query('SELECT vg.*, pub.pub_id, pub.pub_name, dev.dev_id, dev.dev_name FROM Videogame vg INNER JOIN Publisher pub ON vg.pub_id = pub.pub_id INNER JOIN Developer dev on vg.dev_id = dev.dev_id WHERE vg_id = $1', [vg_id]);
+    result = await client.query('SELECT * WHERE vg_id = $1', [vg_id]);
     await client.end();
     return res.json(result.rows[0])
 });

@@ -30,6 +30,7 @@ DROP TABLE IF EXISTS Videogame CASCADE;
 CREATE TABLE Videogame(
     vg_id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     pub_id INT,
+    dev_id INT,
     vg_name TEXT,
     genre TEXT,
     vg_description TEXT,
