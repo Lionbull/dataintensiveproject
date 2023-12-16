@@ -52,7 +52,7 @@ function GameInformation() {
                     
                     <Box className="game-wrapper-right">
                         <Box className="game-wrapper-right-inner">
-                            <Typography variant="h2">{gameData.name}</Typography>
+                            <Typography variant="h2">{gameData.vg_name}</Typography>
                             <Typography variant="h5">{gameData.vg_description}</Typography>
                         </Box>
                         
@@ -60,18 +60,18 @@ function GameInformation() {
                             <Box className="game-wrapper-right-inner">
                                 <Typography variant="body1">Release year: {gameData.release_year}</Typography>
                                 <Typography variant="body1">Genre: {gameData.genre}</Typography>
-                                <Typography variant="body1">Age limit: {gameData.age_limit}</Typography>
+                                <Typography variant="body1">Age limit: PG-{gameData.age_limit}</Typography>
                             </Box>
                             <Box className="game-wrapper-right-inner">
-                                <Typography className="price">Budget: {gameData.budget}</Typography>
+                                <Typography className="price">Budget: {gameData.budget}€</Typography>
                                 <Typography>Engine: {gameData.engine}</Typography>
                                 <Typography>Country: {gameData.country}</Typography>
                             </Box>
                             <Box className="game-wrapper-right-inner">
-                                <Typography className="price">Price: {gameData.price}</Typography>
+                                <Typography className="price">Price: {gameData.price}€</Typography>
                                 <Typography>Store links</Typography>
-                                <Typography>Platforms:</Typography>
-                                <div>
+                                <Typography style={{marginTop: "5px"}}>Platforms:</Typography>
+                                <div style={{display: "flex", flexDirection: "row", gap: "10px"}}>
                                   {gameData.platform.map((platform, index) => (
                                   <Typography key={index}>{platform}</Typography>
                                 ))}

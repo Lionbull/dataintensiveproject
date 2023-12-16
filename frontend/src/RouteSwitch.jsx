@@ -1,6 +1,6 @@
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import CountrySelectionPage from "./components/CountrySelectionPage.jsx";
-import Header from "./components/Header.jsx";
+import NavBar from "./components/NavBar.jsx";
 import DeveloperInformation from "./components/DeveloperInformation.jsx";
 import PublisherInformation from "./components/PublisherInformation.jsx";
 import GameInformation from "./components/GameInformation.jsx";
@@ -10,7 +10,7 @@ import GamesListPage from "./components/GamesListPage.jsx";
 const RouteSwitch = () => {
     return (
         <BrowserRouter>
-            <Header/>
+            <NavBar/>
             <Routes>
                 <Route path="/" element={<CountrySelectionPage/>}/>
                 <Route path="/games" element={<GamesListPage country={'Finland'}/>}/>
