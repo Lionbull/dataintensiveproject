@@ -55,10 +55,8 @@ const GameInfoCard = ({vg_name, vg_id, release_year, dev_name, dev_id, pub_name,
                         <Link component={RouterLink} to={`/game/${country}/${vg_id}`} sx={{ fontWeight: 'bold', textDecoration: 'none' }}>{vg_name}</Link>
                     </Box>
                     <Box>
-                        <Box>
-                            <Typography>release year: </Typography>
-                            <Typography>{release_year}</Typography>
-                        </Box>
+                        <Typography>release year: </Typography>
+                        <Typography>{release_year}</Typography>
                     </Box>
                     <Box>
                         <Typography>developer:</Typography>
