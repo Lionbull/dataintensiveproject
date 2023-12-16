@@ -46,7 +46,7 @@ const Filters = ({filters, setFilters}) => {
 
 const GameInfoCard = ({vg_name, vg_id, release_year, dev_name, dev_id, pub_name, pub_id, price}) => {
     const {country} = useParams();
-    return(
+    return (
         <Card sx={{width: "280px", height: '500px'}}>
             <Box component="img" src={controllerImg} sx={{width: '100%'}}/>
             <Box sx={{display: "flex", padding: "8px"}}>
@@ -105,7 +105,7 @@ const GamesListPage = () => {
     return (
         <Box sx={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: 'center', gap: "32px"}}>
             <Box sx={{display: "flex", justifyContent: "center", alignItems: "center", gap: "16px", padding: "16px"}}>
-                <img className="flag" src={flagPath}/>
+                <Box component={"img"} className="flag" src={flagPath}/>
                 <Typography>Support the domestic video game industry. Buy these games! 🕹️</Typography>
             </Box>
             <Filters filters={filters} setFilters={setFilters}/>

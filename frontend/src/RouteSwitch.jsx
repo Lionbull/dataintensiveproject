@@ -18,8 +18,8 @@ const RouteSwitch = () => {
                 <Route path="/developer/:country/:id" element={<DeveloperInformation/>}/>
                 <Route path="/publisher/:country/:id" element={<PublisherInformation/>}/>
                 <Route path="/game/:country/:id" element={<GameInformation/>}/>
-                <Route path="/devlist/" element={<DeveloperListPage/>}/>
-                <Route path="/publist/" element={<PublisherListPage/>}/>
+                <Route path="/developers/:country/" element={<DeveloperListPage/>}/>
+                <Route path="/publishers/:country/" element={<PublisherListPage/>}/>
             </Routes>
         </BrowserRouter>
     )
