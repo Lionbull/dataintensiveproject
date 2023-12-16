@@ -103,7 +103,7 @@ const GamesListPage = () => {
     const flagPath = getFlagSvg(country);
 
     return (
-        <Box sx={{display: "flex", flexDirection: "column", justifyContent: "center", gap: "32px"}}>
+        <Box sx={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: 'center', gap: "32px"}}>
             <Box sx={{display: "flex", justifyContent: "center", alignItems: "center", gap: "16px", padding: "16px"}}>
                 <img className="flag" src={flagPath}/>
                 <Typography>Support the domestic video game industry. Buy these games! 🕹️</Typography>

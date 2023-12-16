@@ -28,7 +28,7 @@ const flagButton = (title, img) => {
 
 const CountrySelectionPage = () => {
     return (
-        <div>
+        <Box>
             <Typography variant="h2" sx={{
                 display: "flex",
                 justifyContent: "center",
@@ -44,7 +44,6 @@ const CountrySelectionPage = () => {
                     justifyContent: "center",
                     alignItems: "center",
                     width: "80vw",
-                    height: "100vh"
                 }}>
                     <Grid container spacing={{xs: 4, md: 5}} columns={{xs: 1, sm: 3, md: 5}} alignItems="center"
                           justifyContent="center">
@@ -66,7 +65,7 @@ const CountrySelectionPage = () => {
                     </Grid>
                 </Box>
             </Box>
-        </div>
+        </Box>
     )
 }
 
