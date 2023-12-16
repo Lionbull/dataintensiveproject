@@ -1,11 +1,11 @@
 import {Box, Card, FormControl, InputLabel, MenuItem, Select, Typography, Link} from "@mui/material";
 import {useEffect, useState} from "react";
-import fiFlag from "../assets/fi.svg";
 import controllerImg from "../assets/controller.webp"
 import mockData from "../mock-data/games.json";
 import filter from "../utils/filter.js";
 import config from "../config.js";
 import {useParams} from "react-router-dom";
+import getFlagSvg from "../utils/getFlagSvg.js";
 
 const emptyFilters = {
     vg_name: "",
@@ -85,10 +85,12 @@ const GamesListPage = () => {
 
     const filteredData = filter(games, filters);
 
+    const flagPath = getFlagSvg(country);
+
     return (
         <Box sx={{display: "flex", flexDirection: "column", justifyContent: "center", gap: "32px"}}>
             <Box sx={{display: "flex", justifyContent: "center", alignItems: "center", gap: "16px", padding: "16px"}}>
-                <img className="flag" src={fiFlag}/>
+                <img className="flag" src={flagPath}/>
                 <Typography>Support the domestic video game industry. Buy these games! 🕹️</Typography>
             </Box>
             <Filters filters={filters} setFilters={setFilters}/>
