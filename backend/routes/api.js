@@ -37,7 +37,7 @@ router.get('/game/:country/:id', async function (req, res) {
         database: `di${country}`,
     });
     await client.connect();
-    result = await client.query('SELECT * WHERE vg_id = $1', [vg_id]);
+    result = await client.query('SELECT * FROM Videogame WHERE vg_id = $1', [vg_id]);
     await client.end();
     return res.json(result.rows[0])
 });

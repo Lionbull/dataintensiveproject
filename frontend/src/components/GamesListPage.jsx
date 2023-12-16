@@ -1,7 +1,7 @@
 import {Box, Card, FormControl, InputLabel, MenuItem, Select, Typography, Link} from "@mui/material";
+import {Link as RouterLink } from "react-router-dom";
 import {useEffect, useState} from "react";
 import controllerImg from "../assets/controller.webp"
-import mockData from "../mock-data/games.json";
 import filter from "../utils/filter.js";
 import config from "../config.js";
 import {useParams} from "react-router-dom";
@@ -10,7 +10,9 @@ import getFlagSvg from "../utils/getFlagSvg.js";
 const emptyFilters = {
     vg_name: "",
     release_year: "",
-    price: ""
+    price: "",
+    dev_name: "",
+    pub_name: ""
 };
 
 const DropdownFilter = ({property, name, filters, setFilters}) => {
@@ -35,24 +37,39 @@ const Filters = ({filters, setFilters}) => {
         <Box sx={{display: "flex", justifyContent: "center", gap: "16px"}}>
             <DropdownFilter property="vg_name" name="Name" filters={filters} setFilters={setFilters}/>
             <DropdownFilter property="release_year" name="Release Year" filters={filters} setFilters={setFilters}/>
+            <DropdownFilter property="dev_name" name="Developer" filters={filters} setFilters={setFilters}/>
+            <DropdownFilter property="pub_name" name="Publisher" filters={filters} setFilters={setFilters}/>
             <DropdownFilter property="price" name="Price" filters={filters} setFilters={setFilters}/>
         </Box>
     );
 };
 
-const GameInfoCard = ({vg_name, vg_id, release_year, developer, publisher, price}) => {
+const GameInfoCard = ({vg_name, vg_id, release_year, dev_name, dev_id, pub_name, pub_id, price}) => {
     const {country} = useParams();
     return(
-        <Card sx={{width: "256px"}}>
+        <Card sx={{width: "280px", height: '500px'}}>
             <Box component="img" src={controllerImg} sx={{width: '100%'}}/>
             <Box sx={{display: "flex", padding: "8px"}}>
-                <Box sx={{width: "60%"}}>
-                    <Link href={`/game/${country}/${vg_id}`} sx={{ fontWeight: 'bold' }}>{vg_name}</Link>
-                    <Typography>{release_year}</Typography>
-                    <Typography>{developer}</Typography>
-                    <Typography>{publisher}</Typography>
+                <Box sx={{width: "60%", display: 'flex', flexDirection: 'column', gap: '8px'}}>
+                    <Box>
+                        <Link component={RouterLink} to={`/game/${country}/${vg_id}`} sx={{ fontWeight: 'bold', textDecoration: 'none' }}>{vg_name}</Link>
+                    </Box>
+                    <Box>
+                        <Box>
+                            <Typography>release year: </Typography>
+                            <Typography>{release_year}</Typography>
+                        </Box>
+                    </Box>
+                    <Box>
+                        <Typography>developer:</Typography>
+                        <Link component={RouterLink} to={`/developer/${country}/${dev_id}`} sx={{ fontWeight: 'bold', textDecoration: 'none' }}>{dev_name}</Link>
+                    </Box>
+                    <Box>
+                        <Typography>publisher:</Typography>
+                        <Link component={RouterLink} to={`/publisher/${country}/${pub_id}`} sx={{ fontWeight: 'bold', textDecoration: 'none'  }}>{pub_name}</Link>
+                    </Box>
                 </Box>
-                <Box sx={{width: "40%", display: "flex", flexDirection: "column-reverse", alignItems: "flex-end"}}>
+                <Box sx={{width: "40%", display: "flex", flexDirection: "column", alignItems: "flex-end"}}>
                     <Typography>{price} €</Typography>
                 </Box>
             </Box>

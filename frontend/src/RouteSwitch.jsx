@@ -14,7 +14,7 @@ const RouteSwitch = () => {
         <BrowserRouter>
             <NavBar/>
             <Routes>
-                <Route path="/" element={<CountrySelectionPage/>}/>
+                <Route exact path="/" element={<CountrySelectionPage/>}/>
                 <Route path="/games/:country" element={<GamesListPage/>}/>
                 <Route path="/developer/:country/:id" element={<DeveloperInformation/>}/>
                 <Route path="/publisher/:country/:id" element={<PublisherInformation/>}/>
