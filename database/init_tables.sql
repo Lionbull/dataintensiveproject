@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS Developer;
+DROP TABLE IF EXISTS Developer CASCADE;
 CREATE TABLE Developer(
     dev_id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     dev_name TEXT,
@@ -8,10 +8,11 @@ CREATE TABLE Developer(
     founding_year INT,
     revenue INT,
     img_url TEXT,
-    company_type TEXT
+    company_type TEXT,
+    country TEXT
 );
 
-DROP TABLE IF EXISTS Publisher;
+DROP TABLE IF EXISTS Publisher CASCADE;
 CREATE TABLE Publisher(
     pub_id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     pub_name TEXT,
@@ -21,10 +22,11 @@ CREATE TABLE Publisher(
     founding_year INT,
     revenue INT,
     img_url TEXT,
-    company_type TEXT
+    company_type TEXT,
+    country TEXT
 );
 
-DROP TABLE IF EXISTS Videogame;
+DROP TABLE IF EXISTS Videogame CASCADE;
 CREATE TABLE Videogame(
     vg_id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     pub_id INT,
@@ -44,7 +46,7 @@ CREATE TABLE Videogame(
 	        REFERENCES Publisher(pub_id)
 );
 
-DROP TABLE IF EXISTS ParticipatedDevelopers;
+DROP TABLE IF EXISTS ParticipatedDevelopers CASCADE;
 CREATE TABLE ParticipatedDevelopers(
     vg_id INT,
     dev_id INT,

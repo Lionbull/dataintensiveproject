@@ -19,8 +19,8 @@ VALUES
 -- Sweden Videogames
 INSERT INTO Videogame(pub_id, vg_name, genre, vg_description, release_year, age_limit, price, platform, budget, engine, country, img_url)
 VALUES 
-(11, 'Swedish Winter Tales', 'Adventure', 'Embark on chilly Swedish winter adventures', 2019, 11, 29.99, ARRAY['PC', 'Mac', 'Linux'], 4500000, 'SwedishFrostEngine', 'SE', 'http://arctictech.se/swedish_winter_tales.png'),
-(12, 'NinjaCoder Sweden', 'Action', 'Become a master coder and ninja warrior in Sweden', 2017, 13, 19.99, ARRAY['PC', 'PlayStation', 'Xbox'], 3200000, 'NinjaCodeEngineSweden', 'SE', 'http://codeninjas.se/ninja_coder_sweden.png'),
-(13, 'FrozenWeb Magic Sweden', 'Simulation', 'Craft magic in a frozen web environment in Sweden', 2020, 9, 39.99, ARRAY['PC', 'Mac'], 5500000, 'IceMagicSweden', 'SE', 'http://icewebwizards.se/frozenweb_magic_sweden.png'),
-(14, 'PolarData Simulator Sweden', 'Simulation', 'Simulate polar data scenarios in Sweden', 2018, 14, 49.99, ARRAY['PC', 'Mac'], 1800000, 'DataSimulatorSweden', 'SE', 'http://datapolar.se/polar_data_simulator_sweden.png'),
-(15, 'FrozenInnovator Tycoon Sweden', 'Simulation', 'Build your own frozen innovation empire in Sweden', 2019, 16, 34.99, ARRAY['PC', 'Mac', 'Linux'], 2800000, 'FrozenInnovationCraftSweden', 'SE', 'http://frozeninnovation.se/frozeninnovator_tycoon_sweden.png');
+(1, 'Swedish Winter Tales', 'Adventure', 'Embark on chilly Swedish winter adventures', 2019, 11, 29.99, ARRAY['PC', 'Mac', 'Linux'], 4500000, 'SwedishFrostEngine', 'SE', 'http://arctictech.se/swedish_winter_tales.png'),
+(2, 'NinjaCoder Sweden', 'Action', 'Become a master coder and ninja warrior in Sweden', 2017, 13, 19.99, ARRAY['PC', 'PlayStation', 'Xbox'], 3200000, 'NinjaCodeEngineSweden', 'SE', 'http://codeninjas.se/ninja_coder_sweden.png'),
+(3, 'FrozenWeb Magic Sweden', 'Simulation', 'Craft magic in a frozen web environment in Sweden', 2020, 9, 39.99, ARRAY['PC', 'Mac'], 5500000, 'IceMagicSweden', 'SE', 'http://icewebwizards.se/frozenweb_magic_sweden.png'),
+(4, 'PolarData Simulator Sweden', 'Simulation', 'Simulate polar data scenarios in Sweden', 2018, 14, 49.99, ARRAY['PC', 'Mac'], 1800000, 'DataSimulatorSweden', 'SE', 'http://datapolar.se/polar_data_simulator_sweden.png'),
+(5, 'FrozenInnovator Tycoon Sweden', 'Simulation', 'Build your own frozen innovation empire in Sweden', 2019, 16, 34.99, ARRAY['PC', 'Mac', 'Linux'], 2800000, 'FrozenInnovationCraftSweden', 'SE', 'http://frozeninnovation.se/frozeninnovator_tycoon_sweden.png');
