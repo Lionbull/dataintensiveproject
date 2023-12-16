@@ -5,8 +5,6 @@ import {Link as RouterLink, useParams} from "react-router-dom";
 import config from "../config.js";
 import getFlagSvg from "../utils/getFlagSvg.js";
 import ListOfCategories from "./ListOfCategories.jsx";
-import * as React from "react";
-
 const PublisherInfoCard = ({pub_name, pub_id, founding_year, company_type}) => {
     const {country} = useParams();
     return(

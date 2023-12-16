@@ -1,12 +1,11 @@
 import {Box, Card, FormControl, InputLabel, MenuItem, Select, Typography, Link} from "@mui/material";
-import {Link as RouterLink, redirect} from "react-router-dom";
+import {Link as RouterLink} from "react-router-dom";
 import {useEffect, useState} from "react";
 import controllerImg from "../assets/controller.webp"
 import filter from "../utils/filter.js";
 import config from "../config.js";
 import {useParams} from "react-router-dom";
 import getFlagSvg from "../utils/getFlagSvg.js";
-import * as React from "react";
 import ListOfCategories from "./ListOfCategories.jsx";
 
 const emptyFilters = {
