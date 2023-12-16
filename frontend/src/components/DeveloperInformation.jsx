@@ -1,21 +1,23 @@
 import {Box, Card, FormControl, InputLabel, MenuItem, Select, Typography} from "@mui/material";
 import "../styles/developerinformation.css"
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 //TEST DATA BELOW - REPLACE WITH DATABASE PROPS DATA
 import mockData from "../mock-data/developerinformation.json";
+import config from "../config.js";
 
 // ! ! NOTE ! !
 // ADD props AND REMOVE 'mockData.' from the variables
 
 function DeveloperInformation() {
+    const [developerData, setDeveloperData] = useState(null);
 
     const { country, id } = useParams();
     console.log(country, id)
     useEffect(() => {
         
-        const apiUrl = "/api/developer/"+country+"/"+id;
+        const apiUrl = `${config.uri}/api/developer/${country}/${id}`;
         console.log(apiUrl)
         const fetchData = async () => {
           try {
@@ -24,8 +26,10 @@ function DeveloperInformation() {
               throw new Error('Network response was not ok');
             }
     
-            const data = await response;
+            const data = await response.json();
             console.log('Fetched data:', data);
+            setDeveloperData(data)
+            console.log(developerData)
           } catch (error) {
             console.error('Error fetching data:', error);
           }
@@ -36,7 +40,9 @@ function DeveloperInformation() {
 
     return (
       <>
-        <Card className="developer-outer" sx={{width: "1200px"}}>
+      {developerData ? (
+        <div>
+          <Card className="developer-outer" sx={{width: "1200px"}}>
             <Box className="developer-wrapper-outer">
 
                 <Box className="developer-wrapper-left">
@@ -45,23 +51,29 @@ function DeveloperInformation() {
                 
                 <Box className="developer-wrapper-right">
                     <Box className="developer-wrapper-right-inner">
-                        <Typography variant="h2">{mockData.name}</Typography>
-                        <Typography variant="h5" className="developer-description">{mockData.description}</Typography>
+                        <Typography variant="h2">{developerData.dev_name}</Typography>
+                        <Typography variant="h5" className="developer-description">{developerData.dev_description}</Typography>
                     </Box>
                     <Box className="developer-wrapper-right-inner">
-                        <Typography variant="body1">Website: <a href={mockData.website}>{mockData.website}</a></Typography>
-                        <Typography variant="body1">Founding year: {mockData.founding_year}</Typography>
-                        <Typography variant="body1">Revenue 20xx: {mockData.revenue}</Typography>
+                        <Typography variant="body1">Website: <a href={developerData.website}>{developerData.website}</a></Typography>
+                        <Typography variant="body1">Founding year: {developerData.founding_year}</Typography>
+                        <Typography variant="body1">Revenue 2022: {developerData.revenue}</Typography>
                     </Box>
                     <Box className="developer-wrapper-right-inner">
-                        <Typography variant="body1">Company type: {mockData.company_type}</Typography>
-                        <Typography variant="body1">Number of employees: {mockData.number_of_employees}</Typography>
+                        <Typography variant="body1">Company type: {developerData.company_type}</Typography>
+                        <Typography variant="body1">Number of employees: {developerData.number_of_employees}</Typography>
+                        <Typography variant="body1">Country: {developerData.country}</Typography>
                     </Box>
             
                 </Box>
                 
             </Box>
         </Card>
+        </div>
+      ) : (
+        <p>Loading...</p>
+      )}
+        
       </>
     )
   }
