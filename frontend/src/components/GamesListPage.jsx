@@ -57,7 +57,7 @@ const GameInfoCard = ({title, releaseYear, developer, publisher, price}) => {
     );
 };
 
-const GamesListPage = ({country}) => {
+const GamesListPage = () => {
     const [filters, setFilters] = useState(emptyFilters);
 
     const filteredData = filter(mockData, filters);
