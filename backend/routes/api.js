@@ -48,7 +48,7 @@ router.get('/game/:country/:id', async function(req, res) {
 /**
  * Get participated developers for a game
  */
-router.get('/developers/:country/:id', async function(req, res) {
+router.get('/game-developers/:country/:id', async function(req, res) {
     const vg_id = req.params.id;
     const country = req.params.country;
     const client = new Client({
@@ -59,6 +59,22 @@ router.get('/developers/:country/:id', async function(req, res) {
     result = await client.query('SELECT * FROM ParticipatedDevelopers WHERE vg_id = $1;', [vg_id]);
     await client.end();
     return res.json(result.rows)
+});
+
+/**
+ * Get all developers of a country
+ */
+router.get('/developers/:country', async function(req, res) {
+    const country = req.params.country;
+    const client = new Client({
+        database: `di${country}`,
+    });
+    await client.connect();
+    
+    result = await client.query('SELECT * FROM Developer');
+    await client.end();
+
+    return res.json(result.rows);
 });
 
 /**
@@ -76,6 +92,22 @@ router.get('/developer/:country/:id', async function(req, res) {
     await client.end();
 
     return res.json(result.rows[0]);
+});
+
+/** 
+ * Get one publisher's information
+ */
+router.get('/publishers/:country', async function(req, res) {
+    const country = req.params.country;
+    const client = new Client({
+        database: `di${country}`,
+    });
+    await client.connect();
+    
+    result = await client.query('SELECT * FROM Publisher ');
+    await client.end();
+
+    return res.json(result.rows)
 });
 
 /** 
