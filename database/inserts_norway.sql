@@ -17,7 +17,7 @@ VALUES
 ('FrozenInnovation Hub Norway', 'Fostering innovation in the frozen lands in Norway', 42, 'http://frozeninnovation.no', 2017, 2600000, 'http://frozeninnovation.no/logo.png', 'Innovation', 'NO');
 
 -- Norway Videogames
-INSERT INTO Videogame(pub_id, vg_name, genre, vg_description, release_year, age_limit, price, platform, budget, engine, country, img_url)
+INSERT INTO Videogame(pub_id, dev_id, vg_name, genre, vg_description, release_year, age_limit, price, platform, budget, engine, country, img_url)
 VALUES 
 (1, 1, 'Norwegian Winter Tales', 'Adventure', 'Embark on chilly Norwegian winter adventures', 2020, 10, 29.99, ARRAY['PC', 'Mac', 'Linux'], 4800000, 'NorwegianFrostEngine', 'NO', 'http://arctictech.no/norwegian_winter_tales.png'),
 (2, 2, 'NinjaCoder Norway', 'Action', 'Become a master coder and ninja warrior in Norway', 2018, 12, 19.99, ARRAY['PC', 'PlayStation', 'Xbox'], 2900000, 'NinjaCodeEngineNorway', 'NO', 'http://codeninjas.no/ninja_coder_norway.png'),
