@@ -25,7 +25,6 @@ router.get('/games/:country', async function(req, res) {
     });
     await client.connect();
     result = await client.query('SELECT * FROM Videogame;');
-    console.log(res.rows);
     await client.end();
 
     return res.json(result.rows)
@@ -74,7 +73,6 @@ router.get('/developer/:country/:id', async function(req, res) {
     await client.connect();
     
     result = await client.query('SELECT * FROM Developer WHERE dev_id = $1;', [dev_id]);
-    console.log(result);
     await client.end();
 
     return res.json(result.rows[0]);
@@ -92,7 +90,6 @@ router.get('/publisher/:country/:id', async function(req, res) {
     await client.connect();
     
     result = await client.query('SELECT * FROM Publisher WHERE pub_id = $1;', [pub_id]);
-    console.log(res.rows[0]);
     await client.end();
 
     return res.json(result.rows[0])
@@ -109,7 +106,6 @@ router.delete('/delete/game/:country/:id', async function(req, res) {
     await client.connect();
     
     result = await client.query('DELETE FROM Videogame WHERE vg_id = $1;', [vg_id]);
-    console.log(res.rows[0]);
     await client.end();
 
     return res.json(result.rows[0])
@@ -130,7 +126,6 @@ router.put('/update/game/:id', async function(req, res) {
     await client.connect();
     
     result = await client.query('UPDATE Videogame SET $1 = $2 WHERE vg_id = $3;', [updatedField, newValue, vg_id]);
-    console.log(result.rows[0]);
     await client.end();
 
     return res.json(result.rows[0])
@@ -156,9 +151,6 @@ router.get('/expensive-games', async function(req, res) {
             await client.end();
             results.push(result.rows[0]);
         }
-        
-        console.log(results);
-
         return res.json(results)
     } catch (error) {
         console.log(error);
