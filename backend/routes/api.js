@@ -1,13 +1,6 @@
 var express = require('express')
+const isValidCountry = require("../utils/isvalidcountry");
 var Client = require('pg').Client;
-
-country_codes = {
-    'finland': 'fi',
-    'sweden': 'se',
-    'norway': 'no',
-    'denmark': 'dk',
-    'estonia': 'ee'
-}
 
 router = express.Router()
 
@@ -19,6 +12,8 @@ router.get('/', (req, res) => {
  * Get all games from a country
  */
 router.get('/games/:country', async function(req, res) {
+    if (!isValidCountry(req.params.country)) return res.status(400).json({error: 'Invalid country'});
+
     const country = req.params.country;
     const client = new Client({
         database: `di${country}`,
@@ -34,6 +29,8 @@ router.get('/games/:country', async function(req, res) {
  * Get one game's information
  */
 router.get('/game/:country/:id', async function(req, res) {
+    if (!isValidCountry(req.params.country)) return res.status(400).json({error: 'Invalid country'});
+
     const vg_id = req.params.id;
     const country = req.params.country;
     const client = new Client({
@@ -49,6 +46,8 @@ router.get('/game/:country/:id', async function(req, res) {
  * Get participated developers for a game
  */
 router.get('/game-developers/:country/:id', async function(req, res) {
+    if (!isValidCountry(req.params.country)) return res.status(400).json({error: 'Invalid country'});
+
     const vg_id = req.params.id;
     const country = req.params.country;
     const client = new Client({
@@ -65,6 +64,8 @@ router.get('/game-developers/:country/:id', async function(req, res) {
  * Get all developers of a country
  */
 router.get('/developers/:country', async function(req, res) {
+    if (!isValidCountry(req.params.country)) return res.status(400).json({error: 'Invalid country'});
+
     const country = req.params.country;
     const client = new Client({
         database: `di${country}`,
@@ -81,6 +82,8 @@ router.get('/developers/:country', async function(req, res) {
  * Get one developer's information
  */
 router.get('/developer/:country/:id', async function(req, res) {
+    if (!isValidCountry(req.params.country)) return res.status(400).json({error: 'Invalid country'});
+
     const dev_id = req.params.id;
     const country = req.params.country;
     const client = new Client({
@@ -98,6 +101,8 @@ router.get('/developer/:country/:id', async function(req, res) {
  * Get one publisher's information
  */
 router.get('/publishers/:country', async function(req, res) {
+    if (!isValidCountry(req.params.country)) return res.status(400).json({error: 'Invalid country'});
+
     const country = req.params.country;
     const client = new Client({
         database: `di${country}`,
@@ -114,6 +119,8 @@ router.get('/publishers/:country', async function(req, res) {
  * Get one publisher's information
  */
 router.get('/publisher/:country/:id', async function(req, res) {
+    if (!isValidCountry(req.params.country)) return res.status(400).json({error: 'Invalid country'});
+
     const pub_id = req.params.id;
     const country = req.params.country;
     const client = new Client({
@@ -131,6 +138,8 @@ router.get('/publisher/:country/:id', async function(req, res) {
  * Delete game from a database
  */
 router.delete('/delete/game/:country/:id', async function(req, res) {
+    if (!isValidCountry(req.params.country)) return res.status(400).json({error: 'Invalid country'});
+
     const vg_id = req.params.id;
     const client = new Client({
         database: `di${country}`,
