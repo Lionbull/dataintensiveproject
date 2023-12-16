@@ -7,14 +7,12 @@ import {Link as RouterLink } from "react-router-dom";
 
 export default function NavBar() {
   return (
-    <Box sx={{ display: "flex", justifyContent:"center", alignItems:"center", flexGrow: 1, width:"100vw" }}>
-      <AppBar position="static">
+      <AppBar position="sticky">
         <Toolbar variant="dense">
           <Link to="/" component={RouterLink} variant="h6" color="inherit" textAlign="center">
             Nordic Game Information -site
           </Link>
         </Toolbar>
       </AppBar>
-    </Box>
   );
 }

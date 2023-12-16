@@ -8,7 +8,6 @@ import GamesListPage from "./components/GamesListPage.jsx";
 import DeveloperListPage from "./components/DeveloperListPage.jsx";
 import PublisherListPage from "./components/PublisherListPage.jsx";
 
-
 const RouteSwitch = () => {
     return (
         <BrowserRouter>
