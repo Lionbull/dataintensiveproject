@@ -11,8 +11,8 @@ router.get('/', (req, res) => {
 /** 
  * Get all games from a country
  */
-router.get('/games/:country', async function(req, res) {
-    if (!isValidCountry(req.params.country)) return res.status(400).json({error: 'Invalid country'});
+router.get('/games/:country', async function (req, res) {
+    if (!isValidCountry(req.params.country)) return res.status(400).json({ error: 'Invalid country' });
 
     const country = req.params.country;
     const client = new Client({
@@ -28,8 +28,8 @@ router.get('/games/:country', async function(req, res) {
 /** 
  * Get one game's information
  */
-router.get('/game/:country/:id', async function(req, res) {
-    if (!isValidCountry(req.params.country)) return res.status(400).json({error: 'Invalid country'});
+router.get('/game/:country/:id', async function (req, res) {
+    if (!isValidCountry(req.params.country)) return res.status(400).json({ error: 'Invalid country' });
 
     const vg_id = req.params.id;
     const country = req.params.country;
@@ -37,7 +37,7 @@ router.get('/game/:country/:id', async function(req, res) {
         database: `di${country}`,
     });
     await client.connect();
-    result = await client.query('SELECT * FROM Videogame WHERE vg_id = $1;', [vg_id]);
+    result = await client.query('SELECT vg.*, pub.pub_id, pub.pub_name, dev.dev_id, dev.dev_name FROM Videogame vg INNER JOIN Publisher pub ON vg.pub_id = pub.pub_id INNER JOIN Developer dev on vg.dev_id = dev.dev_id WHERE vg_id = $1', [vg_id]);
     await client.end();
     return res.json(result.rows[0])
 });
@@ -45,8 +45,8 @@ router.get('/game/:country/:id', async function(req, res) {
 /**
  * Get participated developers for a game
  */
-router.get('/game-developers/:country/:id', async function(req, res) {
-    if (!isValidCountry(req.params.country)) return res.status(400).json({error: 'Invalid country'});
+router.get('/game-developers/:country/:id', async function (req, res) {
+    if (!isValidCountry(req.params.country)) return res.status(400).json({ error: 'Invalid country' });
 
     const vg_id = req.params.id;
     const country = req.params.country;
@@ -54,7 +54,7 @@ router.get('/game-developers/:country/:id', async function(req, res) {
         database: `di${country}`,
     });
     await client.connect();
-    
+
     result = await client.query('SELECT * FROM ParticipatedDevelopers WHERE vg_id = $1;', [vg_id]);
     await client.end();
     return res.json(result.rows)
@@ -63,15 +63,15 @@ router.get('/game-developers/:country/:id', async function(req, res) {
 /**
  * Get all developers of a country
  */
-router.get('/developers/:country', async function(req, res) {
-    if (!isValidCountry(req.params.country)) return res.status(400).json({error: 'Invalid country'});
+router.get('/developers/:country', async function (req, res) {
+    if (!isValidCountry(req.params.country)) return res.status(400).json({ error: 'Invalid country' });
 
     const country = req.params.country;
     const client = new Client({
         database: `di${country}`,
     });
     await client.connect();
-    
+
     result = await client.query('SELECT * FROM Developer');
     await client.end();
 
@@ -81,8 +81,8 @@ router.get('/developers/:country', async function(req, res) {
 /**
  * Get one developer's information
  */
-router.get('/developer/:country/:id', async function(req, res) {
-    if (!isValidCountry(req.params.country)) return res.status(400).json({error: 'Invalid country'});
+router.get('/developer/:country/:id', async function (req, res) {
+    if (!isValidCountry(req.params.country)) return res.status(400).json({ error: 'Invalid country' });
 
     const dev_id = req.params.id;
     const country = req.params.country;
@@ -90,7 +90,7 @@ router.get('/developer/:country/:id', async function(req, res) {
         database: `di${country}`,
     });
     await client.connect();
-    
+
     result = await client.query('SELECT * FROM Developer WHERE dev_id = $1;', [dev_id]);
     await client.end();
 
@@ -100,15 +100,15 @@ router.get('/developer/:country/:id', async function(req, res) {
 /** 
  * Get one publisher's information
  */
-router.get('/publishers/:country', async function(req, res) {
-    if (!isValidCountry(req.params.country)) return res.status(400).json({error: 'Invalid country'});
+router.get('/publishers/:country', async function (req, res) {
+    if (!isValidCountry(req.params.country)) return res.status(400).json({ error: 'Invalid country' });
 
     const country = req.params.country;
     const client = new Client({
         database: `di${country}`,
     });
     await client.connect();
-    
+
     result = await client.query('SELECT * FROM Publisher ');
     await client.end();
 
@@ -118,8 +118,8 @@ router.get('/publishers/:country', async function(req, res) {
 /** 
  * Get one publisher's information
  */
-router.get('/publisher/:country/:id', async function(req, res) {
-    if (!isValidCountry(req.params.country)) return res.status(400).json({error: 'Invalid country'});
+router.get('/publisher/:country/:id', async function (req, res) {
+    if (!isValidCountry(req.params.country)) return res.status(400).json({ error: 'Invalid country' });
 
     const pub_id = req.params.id;
     const country = req.params.country;
@@ -127,7 +127,7 @@ router.get('/publisher/:country/:id', async function(req, res) {
         database: `di${country}`,
     });
     await client.connect();
-    
+
     result = await client.query('SELECT * FROM Publisher WHERE pub_id = $1;', [pub_id]);
     await client.end();
 
@@ -137,15 +137,15 @@ router.get('/publisher/:country/:id', async function(req, res) {
 /** 
  * Delete game from a database
  */
-router.delete('/delete/game/:country/:id', async function(req, res) {
-    if (!isValidCountry(req.params.country)) return res.status(400).json({error: 'Invalid country'});
+router.delete('/delete/game/:country/:id', async function (req, res) {
+    if (!isValidCountry(req.params.country)) return res.status(400).json({ error: 'Invalid country' });
 
     const vg_id = req.params.id;
     const client = new Client({
         database: `di${country}`,
     });
     await client.connect();
-    
+
     result = await client.query('DELETE FROM Videogame WHERE vg_id = $1;', [vg_id]);
     await client.end();
 
@@ -155,17 +155,17 @@ router.delete('/delete/game/:country/:id', async function(req, res) {
 /** 
  * Update a game's information
  */
-router.put('/update/game/:id', async function(req, res) {
+router.put('/update/game/:id', async function (req, res) {
     const vg_id = req.params.id;
     const country = req.body.country;
-    
+
     const updatedField = req.body.field
     const newValue = req.body.value
     const client = new Client({
         database: `di${country}`,
     });
     await client.connect();
-    
+
     result = await client.query('UPDATE Videogame SET $1 = $2 WHERE vg_id = $3;', [updatedField, newValue, vg_id]);
     await client.end();
 
@@ -176,7 +176,7 @@ router.put('/update/game/:id', async function(req, res) {
 /**
  * Get most expensive games from requested countries
  */
-router.get('/expensive-games', async function(req, res) {
+router.get('/expensive-games', async function (req, res) {
     try {
         const countries = req.body.countries;
         let results = [];
