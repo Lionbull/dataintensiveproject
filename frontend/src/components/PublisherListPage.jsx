@@ -4,6 +4,8 @@ import {useEffect, useState} from "react";
 import {Link as RouterLink, useParams} from "react-router-dom";
 import config from "../config.js";
 import getFlagSvg from "../utils/getFlagSvg.js";
+import ListOfCategories from "./ListOfCategories.jsx";
+import * as React from "react";
 
 const PublisherInfoCard = ({pub_name, pub_id, founding_year, company_type}) => {
     const {country} = useParams();
@@ -57,6 +59,7 @@ const PublisherListPage = () => {
                 <Box component={"img"} className="flag" src={flagPath}/>
                 <Typography>Support the domestic video game industry. Buy these games! 🕹️</Typography>
             </Box>
+            <ListOfCategories/>
             <Box sx={{display: "flex", justifyContent: "center", flexWrap: "wrap", width: "992px", gap: "16px"}}>
                 {publishers.map((pubinfo, i) => <PublisherInfoCard {...pubinfo} key={i}/>)}
             </Box>
