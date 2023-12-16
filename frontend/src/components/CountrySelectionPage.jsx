@@ -19,7 +19,7 @@ const paperContainer = (img) => ({
 
 const flagButton = (title, img) => {
     return <Paper style={paperContainer(img)}>
-        <ButtonBase variant="outlined" component={Link} to={"/games?" + title.toLowerCase()} sx={{ width: "100%", height: "100%" }}>
+        <ButtonBase variant="outlined" component={Link} to={"/games?country=" + title} sx={{ width: "100%", height: "100%" }}>
             <Stack sx={{ alignItems: "center", justifyContent: "center" }}>      
                 <Typography className="country-title" variant="button" fontSize="1rem">{title}</Typography>
             </Stack>

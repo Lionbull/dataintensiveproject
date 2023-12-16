@@ -1,4 +1,4 @@
-CREATE TABLE Developer(
+CREATE TABLE IF NOT EXISTS Developer(
     dev_id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     dev_name TEXT,
     dev_description TEXT,
@@ -10,7 +10,7 @@ CREATE TABLE Developer(
     company_type TEXT
 );
 
-CREATE TABLE Publisher(
+CREATE TABLE IF NOT EXISTS Publisher(
     pub_id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     pub_name TEXT,
     pub_description TEXT,
@@ -22,7 +22,7 @@ CREATE TABLE Publisher(
     company_type TEXT
 );
 
-CREATE TABLE Videogame(
+CREATE TABLE IF NOT EXISTS Videogame(
     vg_id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     pub_id INT,
     vg_name TEXT,
@@ -41,7 +41,7 @@ CREATE TABLE Videogame(
 	        REFERENCES Publisher(pub_id)
 );
 
-CREATE TABLE ParticipatedDevelopers(
+CREATE TABLE IF NOT EXISTS ParticipatedDevelopers(
     vg_id INT,
     dev_id INT,
     CONSTRAINT fk_videogame
