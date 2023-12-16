@@ -1,11 +1,38 @@
 import {Box, Card, FormControl, InputLabel, MenuItem, Select, Typography} from "@mui/material";
 import "../styles/developerinformation.css"
+import React, { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 //TEST DATA BELOW - REPLACE WITH DATABASE PROPS DATA
 import mockData from "../mock-data/developerinformation.json";
+
+// ! ! NOTE ! !
 // ADD props AND REMOVE 'mockData.' from the variables
 
 function DeveloperInformation() {
+
+    const { country, id } = useParams();
+    console.log(country, id)
+    useEffect(() => {
+        
+        const apiUrl = "/api/developer/"+country+"/"+id;
+        console.log(apiUrl)
+        const fetchData = async () => {
+          try {
+            const response = await fetch(apiUrl);
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+    
+            const data = await response;
+            console.log('Fetched data:', data);
+          } catch (error) {
+            console.error('Error fetching data:', error);
+          }
+        };
+    
+        fetchData();
+      }, []);
 
     return (
       <>

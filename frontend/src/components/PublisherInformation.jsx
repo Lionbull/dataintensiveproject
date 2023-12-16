@@ -7,14 +7,12 @@ import "../styles/publisherinformation.css"
 // TEST DATA BELOW - REPLACE WITH DATABASE PROPS DATA
 import mockData from "../mock-data/publisherinformation.json";
 import config from "../config.js";
-// ADD props AND REMOVE 'mockData.' from the variables
 
 function PublisherInformation() {
     const { country, id } = useParams();
     console.log(country, id)
     useEffect( () => {
         const apiUrl = `${config.uri}/api/publisher/${country}/${id}`;
-    
         const fetchData = async () => {
           try {
             const response = await fetch(apiUrl);
@@ -22,7 +20,7 @@ function PublisherInformation() {
               throw new Error('Network response was not ok');
             }
     
-            const data = await response.json();
+            const data = await response;
             console.log('Fetched data:', data);
           } catch (error) {
             console.error('Error fetching data:', error);

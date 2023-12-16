@@ -1,13 +1,37 @@
 import {Box, Card, FormControl, InputLabel, MenuItem, Select, Typography} from "@mui/material";
 import "../styles/gameinformation.css"
+import React, { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 //TEST DATA BELOW - REPLACE WITH DATABASE PROPS DATA
 import mockData from "../mock-data/gameinformation.json";
+
+// ! ! NOTE ! !
 // ADD props AND REMOVE 'mockData.' from the variables
 
-function gameInformation() {
-
+function GameInformation() {
+    const { country, id } = useParams();
+    console.log(country, id)
+    useEffect(() => {
+        
+        const apiUrl = "/api/publisher/"+country+"/"+id;
+        console.log(apiUrl)
+        const fetchData = async () => {
+          try {
+            const response = await fetch(apiUrl);
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
     
+            const data = await response;
+            console.log('Fetched data:', data);
+          } catch (error) {
+            console.error('Error fetching data:', error);
+          }
+        };
+    
+        fetchData();
+      }, []);
 
     return (
       <>
@@ -50,7 +74,7 @@ function gameInformation() {
         </Box>
       </>
     )
-  }
+}
   
-export default gameInformation
+export default GameInformation
   
