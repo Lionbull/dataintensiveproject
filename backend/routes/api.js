@@ -98,7 +98,7 @@ router.get('/developer/:country/:id', async function (req, res) {
 });
 
 /** 
- * Get one publisher's information
+ * Get all publishers of a country
  */
 router.get('/publishers/:country', async function (req, res) {
     if (!isValidCountry(req.params.country)) return res.status(400).json({ error: 'Invalid country' });
