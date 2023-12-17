@@ -10,7 +10,7 @@ const PublisherInfoCard = ({pub_name, pub_id, founding_year, company_type}) => {
     const {country} = useParams();
 
     return(
-        <Card sx={{width: "280px", height: '500px'}}>
+        <Card sx={{width: "280px", height: '530px'}}>
             <Box component="img" src={controllerImg} sx={{width: '100%'}}/>
             <Box sx={{display: "flex", padding: "8px"}}>
                 <Box sx={{width: "60%", display: 'flex', flexDirection: 'column', gap: '8px'}}>
