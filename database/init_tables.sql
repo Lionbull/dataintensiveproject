@@ -53,9 +53,11 @@ CREATE TABLE ParticipatedDevelopers(
     dev_id INT,
     CONSTRAINT fk_videogame
         FOREIGN KEY(vg_id) 
-	        REFERENCES Videogame(vg_id),
+	        REFERENCES Videogame(vg_id)
+        ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT fk_developer
         FOREIGN KEY(dev_id)
             REFERENCES Developer(dev_id)
+        ON DELETE CASCADE ON UPDATE CASCADE
 
 );

@@ -142,7 +142,7 @@ router.delete('/delete/game/:country/:id', async function (req, res) {
 
     const vg_id = req.params.id;
     const client = new Client({
-        database: `di${country}`,
+        database: `di${req.params.country}`,
     });
     await client.connect();
 
@@ -166,7 +166,7 @@ router.put('/update/game/:id', async function (req, res) {
     });
     await client.connect();
 
-    result = await client.query('UPDATE Videogame SET $1 = $2 WHERE vg_id = $3;', [updatedField, newValue, vg_id]);
+    result = await client.query(`UPDATE Videogame SET ${updatedField} = $1 WHERE vg_id = $2;`, [newValue, vg_id]);
     await client.end();
 
     return res.json(result.rows[0])
@@ -179,6 +179,7 @@ router.put('/update/game/:id', async function (req, res) {
 router.get('/expensive-games', async function (req, res) {
     try {
         const countries = req.body.countries;
+        console.log(countries)
         let results = [];
         // Loop through countries and get most expensive game from each
 

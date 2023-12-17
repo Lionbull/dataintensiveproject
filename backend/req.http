@@ -1,0 +1,19 @@
+DELETE http://localhost:3000/api/delete/game/finland/4
+
+###
+
+GET http://localhost:3000/api/expensive-games
+Content-Type: application/json
+
+{
+   "countries": ["finland", "sweden"]
+}
+
+PUT http://localhost:3000/api/update/game/1
+Content-Type: application/json
+
+{
+    "country": "finland",
+    "field": "vg_description",
+    "value": "asdf"
+}
